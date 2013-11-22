@@ -3,6 +3,23 @@
 UNIX globbing (wildcard matching) for javascript
 
 
+## Usage
+
+1. nodejs
+
+```javascript
+var glob= require('./glob').glob;
+glob.match('pattern', 'string') // ...
+```
+2. browser
+
+```html
+<script src="glob.js"></script>
+<script>
+  window.glob.match('pattern', 'string') // ...
+</script>
+```
+
 ## Fetures
 
 ### Match exactly one unknown character
@@ -28,4 +45,10 @@ glob.match('ab\\mc', 'abmc') // ok
 ### Combining
 ```javascript
 glob.match("ab?c*[df]\\d|.q", 'ab1c234fd|.q') // ok
+```
+
+## Install
+
+```bash
+bower install glob.js
 ```

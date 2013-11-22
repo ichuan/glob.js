@@ -1,7 +1,7 @@
 {
   "name": "glob.js",
   "main": "glob.min.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/ichuan/glob.js",
   "authors": [
     "ichuan <iyanchuan@gmail.com>"

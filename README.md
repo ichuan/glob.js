@@ -5,13 +5,13 @@ UNIX globbing (wildcard matching) for javascript
 
 ## Usage
 
-1. nodejs
+### nodejs
 
 ```javascript
 var glob= require('./glob').glob;
 glob.match('pattern', 'string') // ...
 ```
-2. browser
+### browser
 
 ```html
 <script src="glob.js"></script>

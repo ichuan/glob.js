@@ -55,4 +55,4 @@ glob.match("ab?c*[df]\\d|.q", 'ab1c234fd|.q') // ok
 
 ```bash
 bower install glob.js
-``
+```

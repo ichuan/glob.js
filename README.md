@@ -7,8 +7,12 @@ UNIX globbing (wildcard matching) for javascript
 
 ### nodejs
 
+```bash
+$ npm install glob.js
+```
+
 ```javascript
-var glob= require('./glob').glob;
+var glob= require('glob.js');
 glob.match('pattern', 'string') // ...
 ```
 ### browser

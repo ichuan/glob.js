@@ -1,0 +1,22 @@
+{
+  "name": "glob.js",
+  "version": "0.1.0",
+  "description": "UNIX globbing (wildcard matching) for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ichuan/glob.js.git"
+  },
+  "keywords": [
+    "glob"
+  ],
+  "author": "ichuan <iyanchuan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ichuan/glob.js/issues"
+  },
+  "homepage": "https://github.com/ichuan/glob.js"
+}

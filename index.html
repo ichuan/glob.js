@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Glob.js tester</title>
+    <meta name="description" content="A page to test glob.js">
+    <meta name="keywords"
+          content="javascript, glob, linux, test, online, tool"/>
+    <script src="glob.js"></script>
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        body > div {
+            margin: 3px;
+        }
+
+        label {
+            flex-grow: -1;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #glob-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+        }
+
+        #glob-container > input {
+            flex-grow: 1;
+        }
+
+        #search-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #search-container > textarea {
+            flex-grow: 1;
+        }
+
+        #results-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        #results-container > .result-item {
+            width: 100%;
+            background: aqua;
+            border-radius: 5px;
+            border-color: aquamarine;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <a href="https://github.com/ichuan/glob.js">
+        <img
+                style="position: absolute; top: 0; right: 0; border: 0;"
+                src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67"
+                alt="Fork me on GitHub"
+                data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+    <h1>glob.js</h1>
+
+    <div id="glob-container">
+        <label for="glob">Glob:</label>
+        <input type="text" id="glob" value="*"
+               placeholder="Enter your glob here">
+    </div>
+
+    <div id="search-container">
+        <label for="search">Search:</label>
+        <textarea name="" id="search" cols="30" rows="10"
+                  placeholder="Fill your search text in here">Initial value</textarea>
+    </div>
+
+    <div id="results-container">
+
+    </div>
+
+    <footer>Hey, it's ugly but it works :)</footer>
+    <script type="application/javascript">
+        const globInput = document.getElementById("glob");
+        const searchInput = document.getElementById("search");
+        const resultsContainer = document.getElementById("results-container");
+
+        function eval() {
+            var results = searchInput.value.split("\n")
+                .filter((line) => {
+                    return line.trim() !== ""
+                }).map((searchValue) => {
+                    var res = glob.match(globInput.value, searchValue);
+                    return res ? res[0] : null
+                }).filter((res) => res)
+            resultsContainer.innerHTML = '';
+            if (results) {
+                results.forEach((result) => {
+                    var resultItem = document.createElement("div");
+                    resultItem.classList.add("result-item");
+                    resultItem.innerText = result;
+                    resultsContainer.appendChild(resultItem);
+                })
+            }
+        }
+
+        globInput.addEventListener("keyup", eval);
+        searchInput.addEventListener("keyup", eval);
+        eval();
+    </script>
+</body>
+</html>
